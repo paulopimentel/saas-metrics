@@ -1,12 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
-import { DollarSign, Users, BarChart3, AlertTriangle, Settings, Home, PieChart, CreditCard, LogOut } from 'lucide-react';
+import { DollarSign, Users, BarChart3, AlertTriangle, Settings, Home, CreditCard, LogOut } from 'lucide-react';
 
 /**
  * Componente de layout principal que inclui a barra lateral de navegação
  * e o conteúdo principal da aplicação
  */
-export default function DashboardLayout({ children }) {
+export default function DashboardLayout({ 
+  children 
+}: { 
+  children: React.ReactNode 
+}) {
   return (
     <div className="flex h-screen bg-gray-100 dark:bg-gray-900">
       {/* Sidebar */}
