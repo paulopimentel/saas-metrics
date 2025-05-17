@@ -32,9 +32,22 @@ const mockCohortData = [
 ];
 
 /**
+ * Tipo para os dados da tabela de cohort
+ */
+type CohortData = {
+  cohort: string;
+  m1: number;
+  m2: number;
+  m3: number;
+  m4: number;
+  m5: number;
+  m6: number;
+};
+
+/**
  * Componente de tabela de análise de cohort
  */
-const CohortTable = ({ data }) => {
+const CohortTable = ({ data }: { data: CohortData[] }) => {
   return (
     <div className="overflow-x-auto">
       <table className="w-full border-collapse">
@@ -70,7 +83,7 @@ const CohortTable = ({ data }) => {
 /**
  * Função auxiliar para determinar a cor da célula com base no valor de retenção
  */
-const getCellColor = (value) => {
+const getCellColor = (value: number) => {
   if (!value) return '';
   if (value >= 95) return 'bg-green-100 dark:bg-green-900/20';
   if (value >= 90) return 'bg-green-50 dark:bg-green-900/10';

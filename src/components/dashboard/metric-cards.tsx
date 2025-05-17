@@ -13,7 +13,17 @@ import { AreaChart, BarChart } from '@tremor/react';
  * @param icon Ícone a ser exibido
  * @param prefix Prefixo para o valor (ex: R$)
  */
-export const MetricCard = ({
+interface MetricCardProps {
+  title: string;
+  value: number | string;
+  description: string;
+  trend?: 'up' | 'down';
+  trendValue: string;
+  icon?: React.ComponentType<{ className?: string }>;
+  prefix?: string;
+}
+
+export const MetricCard: React.FC<MetricCardProps> = ({
   title,
   value,
   description,
@@ -52,6 +62,18 @@ export const MetricCard = ({
 };
 
 /**
+ * Props para o componente AreaChartCard
+ */
+interface AreaChartCardProps {
+  title: string;
+  description: string;
+  data: any[];
+  index: string;
+  categories: string[];
+  colors: string[];
+}
+
+/**
  * Componente de card para exibir gráfico de área
  * @param title Título do gráfico
  * @param description Descrição do gráfico
@@ -60,7 +82,7 @@ export const MetricCard = ({
  * @param categories Categorias a serem exibidas
  * @param colors Cores para cada categoria
  */
-export const AreaChartCard = ({
+export const AreaChartCard: React.FC<AreaChartCardProps> = ({
   title,
   description,
   data,
@@ -94,6 +116,18 @@ export const AreaChartCard = ({
 };
 
 /**
+ * Props para o componente BarChartCard
+ */
+interface BarChartCardProps {
+  title: string;
+  description: string;
+  data: any[];
+  index: string;
+  categories: string[];
+  colors: string[];
+}
+
+/**
  * Componente de card para exibir gráfico de barras
  * @param title Título do gráfico
  * @param description Descrição do gráfico
@@ -102,7 +136,7 @@ export const AreaChartCard = ({
  * @param categories Categorias a serem exibidas
  * @param colors Cores para cada categoria
  */
-export const BarChartCard = ({
+export const BarChartCard: React.FC<BarChartCardProps> = ({
   title,
   description,
   data,
@@ -136,11 +170,25 @@ export const BarChartCard = ({
 };
 
 /**
+ * Props para o componente CustomersAtRiskCard
+ */
+interface CustomersAtRiskCardProps {
+  title: string;
+  customers: {
+    id: string | number;
+    name: string;
+    email: string;
+    overdueAmount: string | number; // Alterado para aceitar string ou number
+    daysOverdue: number;
+  }[];
+}
+
+/**
  * Componente de card para exibir lista de clientes em risco
  * @param title Título do card
  * @param customers Lista de clientes
  */
-export const CustomersAtRiskCard = ({ title, customers }) => {
+export const CustomersAtRiskCard: React.FC<CustomersAtRiskCardProps> = ({ title, customers }) => {
   return (
     <Card>
       <CardHeader>
