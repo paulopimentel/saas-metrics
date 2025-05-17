@@ -1,5 +1,6 @@
 import React from 'react';
 import { MetricCard, AreaChartCard, BarChartCard, CustomersAtRiskCard } from '@/components/dashboard/metric-cards';
+import { Users, BarChart3, AlertTriangle } from 'lucide-react'; // Add this line
 
 /**
  * Dados mockados para o dashboard
